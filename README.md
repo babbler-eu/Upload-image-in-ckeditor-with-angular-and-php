@@ -1,1 +1,1 @@
-# Upload-image-in-ckeditor-with-angular-and-ph
+# Upload-image-in-ckeditor-with-angular-and-php
