@@ -1,1 +1,34 @@
-<p>{{ title }}</p>
+<h2>Integration with reactive forms</h2>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="demoReactiveForm">
+	<h3>User profile form</h3>
+
+	<div>
+		<label for="name">Name</label>
+		<input formControlName="name" type="text" name="name" id="name">
+	</div>
+
+	<div>
+		<label for="surname">Surname</label>
+		<input formControlName="surname" type="text" name="surname" id="surname">
+	</div>
+
+	<label for="description">Description</label>
+	<ckeditor
+		formControlName="description"
+		[editor]="Editor"
+		[config]="editorConfig"
+		id="description"
+		name="description">
+	</ckeditor>
+
+	<p *ngIf="description && description.dirty" class="alert">Description is "dirty".</p>
+	<p *ngIf="description && description.touched" class="alert">Description has been "touched".</p>
+
+	<p><button type="reset" (click)="reset()">Reset form</button></p>
+	<p><button type="submit">Submit this form</button> <em>(Open the console first)</em></p>
+</form>
+
+ 
+<h3>Form data preview</h3>
+<pre>{{ formDataPreview }}</pre>

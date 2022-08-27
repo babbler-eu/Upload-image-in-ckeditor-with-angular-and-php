@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import type { AbstractControl } from '@angular/forms';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import * as BlabEditor from 'ckeditor/build/ckeditor';
 
@@ -7,17 +8,42 @@ import * as BlabEditor from 'ckeditor/build/ckeditor';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Upload image in ckeditor with angular and php';
 
   Editor = BlabEditor;
   editorConfig = {
     placeholder: 'Type the content here ...', 
-    simpleUpload : { uploadUrl : "http://localhost/server/image/" }
+    simpleUpload : { uploadUrl : "http://localhost/server/upload_image.php" }
   };
+  
+  public demoReactiveForm = new FormGroup( {
+		name: new FormControl( 'John' ),
+		surname: new FormControl( 'Doe' ),
+		description: new FormControl( '<p>A <b>really</b> nice fellow.</p>' )
+	} );
 
-  ngOnInit (){
-    
-  }
+	public formDataPreview?: string;
+
+	public ngAfterViewInit(): void {
+		this.demoReactiveForm!.valueChanges
+			.subscribe( values => {
+				this.formDataPreview = JSON.stringify( values );
+			} );
+	}
+
+	public onSubmit(): void {
+		console.log( 'Form submit, model', this.demoReactiveForm.value );
+	}
+
+	public reset(): void {
+		this.demoReactiveForm!.reset();
+	}
+
+	public get description(): AbstractControl {
+		return this.demoReactiveForm!.controls.description;
+	}
+
+  
 
 }
