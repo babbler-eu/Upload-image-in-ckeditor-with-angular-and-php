@@ -18,9 +18,9 @@ export class AppComponent {
   };
   
   public demoReactiveForm = new FormGroup( {
-		name: new FormControl( 'John' ),
-		surname: new FormControl( 'Doe' ),
-		description: new FormControl( '<p>A <b>really</b> nice fellow.</p>' )
+		name: new FormControl( 'Raffy' ),
+		surname: new FormControl( 'Garage' ),
+		description: new FormControl( '<p><b>Upload</b> image with angular 12 and Php.</p>' )
 	} );
 
 	public formDataPreview?: string;
