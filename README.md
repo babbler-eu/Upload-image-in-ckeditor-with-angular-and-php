@@ -3,8 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
 ## First Step
-Run `npm install ./ckeditor`
-Run `npm install`
+Run `npm install ./ckeditor` and `npm install`
 
 ## Second Step 
 you need to create a directory inside your localhost named "/server", and you need to copy the upload.php file. Inside the "/server" directory you have to create another one called "/image", all this and just to make my example work, clearly you can call them whatever you want.
