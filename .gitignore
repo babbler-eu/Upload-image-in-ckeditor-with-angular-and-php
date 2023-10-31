@@ -1,5 +1,6 @@
 node_modules
-node_modules
+ckeditor/node_modules
 
-Upload-image-in-ckeditor-with-angular-and-php.code-workspace
+.angular
 .DS_Store
+.vscode
