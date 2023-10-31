@@ -1,0 +1,39 @@
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+      <div class="col-md-12">
+    <form (ngSubmit)="onSubmit()" [formGroup]="demoReactiveForm">
+      <h3>User profile form</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            <label for="name">Name</label>
+            <input class="form-control" formControlName="name" type="text" name="name" id="name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            <label for="surname">Surname</label>
+            <input class="form-control" formControlName="surname" type="text" name="surname" id="surname">
+          </div>
+        </div>
+      </div>
+      <label for="description">Description</label>
+      <ckeditor
+        formControlName="description"
+        [editor]="editor"
+        [config]="editorConfig"
+        id="description"
+        name="description">
+      </ckeditor>
+
+      <p *ngIf="description && description.dirty" class="alert">Description is "dirty".</p>
+      <p *ngIf="description && description.touched" class="alert">Description has been "touched".</p>
+
+      <p><button class="btn btn-success m-3" type="reset" (click)="reset()">Reset form</button></p>
+      <p><button class="btn btn-success m-1" type="submit">Submit this form</button> <em>(Open the console first)</em></p>
+    </form>
+    <h3>Form data preview</h3>
+    <pre>{{ formDataPreview }}</pre>
+  </div>
+</div>
+</div>
